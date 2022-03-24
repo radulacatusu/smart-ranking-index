@@ -6,11 +6,11 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.PreDestroy;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,6 +34,8 @@ public class RankingsInitializer
 
     private final S3BucketStorageService s3BucketStorageService;
 
+    private Path filePath;
+
     /**
      * Receives the {@link ApplicationReadyEvent} event from Spring as soon as the application context has fully loaded.
      * This ensures that we can safely download the file from S3 and store all the ranking in a list.
@@ -43,7 +45,7 @@ public class RankingsInitializer
                     + "(@environment.getActiveProfiles().length > 0 && @environment.getActiveProfiles()[0] != 'test')")
     public void downloadFile()
     {
-        Path filePath = s3BucketStorageService.downloadFile();
+        filePath = s3BucketStorageService.downloadFile();
 
         try
         {
@@ -64,6 +66,21 @@ public class RankingsInitializer
         catch (IOException e)
         {
             log.error("The file couldn't be opened");
+        }
+    }
+
+    @PreDestroy
+    public void destroy()
+    {
+        final String fileName = filePath.toFile().getName();
+        try
+        {
+            Files.deleteIfExists(filePath);
+            log.info("File {} removed successfully.", fileName);
+        }
+        catch (IOException e)
+        {
+            log.error("Unable to delete the file {}.", fileName);
         }
     }
 }
