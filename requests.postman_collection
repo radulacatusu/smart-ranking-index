@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "5d2c5dce-d258-49ae-a4c8-7e9815a26ac2",
+		"name": "Smart ranking index",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get the time series containing the individual ranks for an ASIN, for a certain keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/ranks/quilt cover king",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"ranks",
+						"quilt cover king"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the time series containing the individual ranks of an ASIN, for a certain keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/ranks/quilt cover king/B00NWPUIBG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"ranks",
+						"quilt cover king",
+						"B00NWPUIBG"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the time series containing the aggregated ranks for all ASINs for a certain keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/keyword-ranks/quilt cover king",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"keyword-ranks",
+						"quilt cover king"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the time series containing the aggregated ranks of all ASINs for a certain keyword Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/detailed-keyword-ranks/quilt cover king",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"detailed-keyword-ranks",
+						"quilt cover king"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the time series containing the aggregated ranks for all keywords for a certain ASIN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/asin-ranks/B084SBQ5NR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"asin-ranks",
+						"B084SBQ5NR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the time series containing the aggregated ranks of all keywords for a certain ASIN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/smart-ranking-index/detailed-asin-ranks/B084SBQ5NR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smart-ranking-index",
+						"detailed-asin-ranks",
+						"B084SBQ5NR"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

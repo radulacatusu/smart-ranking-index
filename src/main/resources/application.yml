@@ -1,0 +1,16 @@
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+aws:
+  # Settings used to connect to the S3 bucket.
+  s3:
+    region: eu-central-1
+    bucketName: sellics-casestudy-organic
+    key: public/case-keywords.csv
+    fileName: case-keywords.csv
+  secrets:
+    accessKeyRef: ${AWS_ACCESS_KEY_ID}
+    secretAccessKeyRef: ${AWS_SECRET_ACCESS_KEY}
