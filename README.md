@@ -7,7 +7,7 @@ This is a Spring Boot Application with a REST API
 Extra:
 * Retrieves a time series containing the aggregated ranks for each ASIN for a certain keyword
 * Retrieves a time series containing the aggregated ranks for each keyword for a certain ASIN
-* 
+
 ## About
 
 The application is developed with Spring Boot 2.6.4, Java 17 and gradle as a building tool.
